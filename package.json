@@ -4,8 +4,8 @@
   "description": "A TOP Project.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack server",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
