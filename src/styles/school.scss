@@ -1,0 +1,78 @@
+.to-do-container{
+    display: flex;
+    flex-direction: column;
+    color:#1E1E1E;
+    margin-bottom: 40px;
+    h2{
+        font-size: 2rem;
+        color: #1E1E1E;
+    }
+    .line{
+        border: 1px solid #1E1E1E;
+        margin-bottom: 8px;
+    }
+    animation-name: showToDos;
+    animation-duration: 1.2s;
+
+    @keyframes showToDos {
+        from {
+            opacity: 0;
+            margin-left: -50px;
+        }
+
+        to {
+            opacity: 1;
+            margin-left: 0;
+        }
+    }
+}
+.to-do-holder{
+    background-color: #1E1E1E;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 15px;
+}
+.to-do-item{
+    display: flex;
+    gap: 12px;
+    background-color: #ECECEC;
+    padding: 15px;
+    border-radius: 15px;
+    input{
+        accent-color: #1E1E1E;
+        width: 50px;
+        min-width: 25px;
+        cursor: pointer;
+    }
+    .to-do-details-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .header-and-due-options-container{
+            display: flex;
+            justify-content: space-between;
+            .to-do-item-header{
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+            .due-options-container{
+                display: flex;
+                gap: 8px;
+                .due-container{
+                    display: flex;
+                    gap: 2px;
+                    font-weight: 300;
+                }
+                i{
+                    cursor: pointer;
+                    transition: 250ms ease-in;
+                    &:hover{
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+}

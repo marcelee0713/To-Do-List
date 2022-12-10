@@ -1,6 +1,8 @@
 import '../styles/home.scss'
+import { format, parse, parseISO } from 'date-fns'
 
-export default function homeModule() {
+export default function homeModule(parent) {
+    let hasPressYes = false;
     const introContainer = document.createElement('div');
     const introHeader = document.createElement('h1');
     const introSubtextContainer = document.createElement('div');
@@ -26,6 +28,13 @@ export default function homeModule() {
     introSubtextContainer.appendChild(introSubText1);
     introSubtextContainer.appendChild(introSubText2);
     introSubtextContainer.appendChild(introSubText3);
+
+    showInputBtn.addEventListener('click', () => {
+        if(!hasPressYes){
+            parent.appendChild(showForm());
+            hasPressYes = true;
+        }
+    });
     
     return introContainer;
 }
@@ -130,5 +139,12 @@ export function showForm(){
     submitBtn.setAttribute('id', "submit-input-btn");
     submitBtn.textContent = "SUBMIT";
 
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        let date = inputForDueDateTime.value;
+        date = format((parseISO(date)), "hh:mm aaaaa'm', yyyy-MM-dd");
+
+        console.log(date);
+    });
     return inputContainer;
 }
