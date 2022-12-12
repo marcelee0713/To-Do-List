@@ -61,12 +61,10 @@
     @keyframes showInput {
         from {
             opacity: 0;
-            margin-left: -50px;
         }
 
         to {
             opacity: 1;
-            margin-left: 0;
         }
     }
     .input-header{

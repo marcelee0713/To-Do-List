@@ -33,6 +33,18 @@
     flex-direction: column;
     gap: 16px;
     border-radius: 15px;
+    box-shadow: 0 4px 3px 1px #888888;
+}
+.no-item-container{
+    @extend .to-do-holder;
+    padding: 0;
+    box-shadow: 0 0 0 0 ;
+    background-color: #ECECEC;
+    .no-item-placeholder{
+        font-weight: 300;
+        color: #444444;
+    }
+
 }
 .to-do-item{
     display: flex;

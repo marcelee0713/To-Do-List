@@ -4,6 +4,7 @@ import schoolModule, { createSchoolToDo } from './scripts/school';
 import allModule from './scripts/all';
 import workModule, {createWorkToDo} from './scripts/work';
 import personalModule, { createPersonalToDo } from './scripts/personal';
+import { school } from './scripts/arrayofobjects';
 
 const homeNav = document.getElementById('home');
 const allNav = document.getElementById('all');
