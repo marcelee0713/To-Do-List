@@ -1,11 +1,11 @@
 import { format, parse, parseISO, sub } from 'date-fns'
-import ToDo from './ToDoClass';
-import { school } from './arrayofobjects';
+import { createObject } from './createObject';
 
 const modal = document.getElementById('input-modal');
 
-//This is form for the All, School, Work, and Personal Module
-export function showForm(){
+// This is form for the All, School, Work, and Personal Module
+// Except the Home Module.
+export function showForm(category){
     const inputContainer = document.createElement('div');
     const formContainer = document.createElement('div');
     const buttonContainer = document.createElement('div');
@@ -107,6 +107,7 @@ export function showForm(){
     closeBtn.setAttribute('id', "close-input-btn");
     submitBtn.textContent = "SUBMIT";
     closeBtn.textContent = "CLOSE";
+    inputForCategory.value = category;
 
     submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -115,17 +116,13 @@ export function showForm(){
         let description = inputForTaskDesc.value.trim();
         let date = inputForDueDateTime.value;
         date = format((parseISO(date)), "hh:mm aaaaa'm', yyyy-MM-dd");
-        
-        const toDoObject = new ToDo(category, header, description, date);
 
-        console.log(toDoObject);
-
+        createObject(category, header, description, date);
         clearOutContainer(modal);
         modal.style.display = "none";
     });
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
 
         clearOutContainer(modal);
         modal.style.display = "none";

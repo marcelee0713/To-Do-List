@@ -24,7 +24,7 @@ export default function allModule(parent){
     introContainer.appendChild(showInputBtn);
 
     showInputBtn.addEventListener('click', () => {
-        modal.appendChild(showForm());
+        modal.appendChild(showForm("school"));
         modal.style.display = "flex";
     });
 

@@ -26,7 +26,7 @@ export default function workModule(parent) {
     introContainer.appendChild(showInputBtn);
 
     showInputBtn.addEventListener('click', () => {
-        modal.appendChild(showForm());
+        modal.appendChild(showForm("work"));
         modal.style.display = "flex";
     });
 
@@ -37,25 +37,35 @@ export function createWorkToDo() {
     const toDoContainer = document.createElement('div');
     const toDoHeader = document.createElement('h2');
     const line = document.createElement('hr');
-    const toDoHolder = document.createElement('div');
 
+    toDoContainer.appendChild(toDoHeader);
+    toDoContainer.setAttribute('id', 'to-do-work-container');
+    toDoContainer.appendChild(line);
+
+    toDoContainer.classList.add('to-do-container');
+    line.classList.add('line');
+
+    toDoHeader.textContent = "Work"
+
+    return toDoContainer;
+}
+
+export function workItemHolder(){
+    const toDoHolder = document.createElement('div');
     if (work.length === 0) {
         const noItem = document.createElement('div');
-        const noItemContainer = document.createElement('div');
-        toDoContainer.appendChild(toDoHeader);
-        toDoContainer.appendChild(line);
-        toDoContainer.appendChild(noItemContainer);
-        noItemContainer.appendChild(noItem);
+        toDoHolder.appendChild(noItem);
 
-        toDoContainer.classList.add('to-do-container');
-        line.classList.add('line');
-        noItemContainer.classList.add('no-item-container');
+        toDoHolder.classList.add('to-do-holder');
+        toDoHolder.setAttribute('id', 'work-holder');
         noItem.classList.add('no-item-placeholder');
+    
+        noItem.textContent = "Are you currently on leave?";
 
-        toDoHeader.textContent = "Work"
-        noItem.textContent = "Did your boss even gave you a task?";
+        noItem.style.color = "#ECECEC"
+        noItem.style.textAlign = "center"
 
-        return toDoContainer;
+        return toDoHolder;
     }
 
     for (let i = 0; i < work.length; i++) {
@@ -75,10 +85,6 @@ export function createWorkToDo() {
         const deleteBtn = document.createElement('i');
         const editBtn = document.createElement('i');
 
-        toDoContainer.appendChild(toDoHeader);
-        toDoContainer.appendChild(line);
-        toDoContainer.appendChild(toDoHolder);
-
         //inside todoholder
         toDoHolder.appendChild(toDoItem)
         toDoItem.appendChild(toDoCheckBox);
@@ -97,9 +103,8 @@ export function createWorkToDo() {
         dueOptionsContainer.appendChild(deleteBtn);
         dueOptionsContainer.appendChild(editBtn);
 
-        toDoContainer.classList.add('to-do-container');
-        line.classList.add('line');
         toDoHolder.classList.add('to-do-holder');
+        toDoHolder.setAttribute('id', 'work-holder');
 
         toDoItem.classList.add('to-do-item');
         toDoCheckBox.classList.add('to-do-check-box');
@@ -122,12 +127,11 @@ export function createWorkToDo() {
 
         toDoCheckBox.setAttribute('type', 'checkbox');
 
-        toDoHeader.textContent = "Work";
         toDoItemHeader.textContent = work[i].header;
         toDoSubText.textContent = work[i].description;
         dueHolderText.textContent = "Due:"
         dueText.textContent = work[i].dueDate
 
     }
-    return toDoContainer;
+    return toDoHolder;
 }

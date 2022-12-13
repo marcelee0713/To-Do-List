@@ -29,7 +29,7 @@ export default function schoolModule(parent) {
     introContainer.appendChild(showInputBtn);
 
     showInputBtn.addEventListener('click', () => {
-        modal.appendChild(showForm());
+        modal.appendChild(showForm("school"));
         modal.style.display = "flex";
     });
 
@@ -40,25 +40,35 @@ export function createSchoolToDo() {
     const toDoContainer = document.createElement('div');
     const toDoHeader = document.createElement('h2');
     const line = document.createElement('hr');
-    const toDoHolder = document.createElement('div');
 
+    toDoContainer.appendChild(toDoHeader);
+    toDoContainer.appendChild(line);
+
+    toDoContainer.classList.add('to-do-container');
+    toDoContainer.setAttribute('id', 'to-do-school-container');
+    line.classList.add('line');
+
+    toDoHeader.textContent = "School"
+
+    return toDoContainer;
+}
+
+export function schoolItemHolder(){
+    const toDoHolder = document.createElement('div');
     if (school.length === 0) {
         const noItem = document.createElement('div');
-        const noItemContainer = document.createElement('div');
-        toDoContainer.appendChild(toDoHeader);
-        toDoContainer.appendChild(line);
-        toDoContainer.appendChild(noItemContainer);
-        noItemContainer.appendChild(noItem);
+        toDoHolder.appendChild(noItem);
 
-        toDoContainer.classList.add('to-do-container');
-        line.classList.add('line');
-        noItemContainer.classList.add('no-item-container');
+        toDoHolder.classList.add('to-do-holder');
+        toDoHolder.setAttribute('id', 'school-holder');
         noItem.classList.add('no-item-placeholder');
+    
+        noItem.textContent = "No homeworks currently?";
 
-        toDoHeader.textContent = "School"
-        noItem.textContent = "No homeworks for today?";
+        noItem.style.color = "#ECECEC"
+        noItem.style.textAlign = "center"
 
-        return toDoContainer;
+        return toDoHolder;
     }
 
     for (let i = 0; i < school.length; i++) {
@@ -78,10 +88,6 @@ export function createSchoolToDo() {
         const deleteBtn = document.createElement('i');
         const editBtn = document.createElement('i');
 
-        toDoContainer.appendChild(toDoHeader);
-        toDoContainer.appendChild(line);
-        toDoContainer.appendChild(toDoHolder);
-
         //inside todoholder
         toDoHolder.appendChild(toDoItem)
         toDoItem.appendChild(toDoCheckBox);
@@ -100,9 +106,8 @@ export function createSchoolToDo() {
         dueOptionsContainer.appendChild(deleteBtn);
         dueOptionsContainer.appendChild(editBtn);
 
-        toDoContainer.classList.add('to-do-container');
-        line.classList.add('line');
         toDoHolder.classList.add('to-do-holder');
+        toDoHolder.setAttribute('id', 'school-holder');
 
         toDoItem.classList.add('to-do-item');
         toDoCheckBox.classList.add('to-do-check-box');
@@ -125,12 +130,11 @@ export function createSchoolToDo() {
 
         toDoCheckBox.setAttribute('type', 'checkbox');
 
-        toDoHeader.textContent = "School";
         toDoItemHeader.textContent = school[i].header;
         toDoSubText.textContent = school[i].description;
         dueHolderText.textContent = "Due:"
         dueText.textContent = school[i].dueDate
 
     }
-    return toDoContainer;
+    return toDoHolder;
 }

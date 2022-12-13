@@ -6,23 +6,37 @@
     h2{
         font-size: 2rem;
         color: #1E1E1E;
+        animation-name: showHeader;
+        animation-duration: 1.2s;
+    
+        @keyframes showHeader {
+            from {
+                margin-left: -50px;
+                opacity: 0;
+            }
+    
+            to {
+                margin-left: 0;
+                opacity: 1;
+            }
+        }
     }
     .line{
         border: 1px solid #1E1E1E;
         margin-bottom: 8px;
-    }
-    animation-name: showToDos;
-    animation-duration: 1.2s;
-
-    @keyframes showToDos {
-        from {
-            opacity: 0;
-            margin-left: -50px;
-        }
-
-        to {
-            opacity: 1;
-            margin-left: 0;
+        animation-name: showHR;
+        animation-duration: 1.2s;
+    
+        @keyframes showHR {
+            from {
+                margin-left: -50px;
+                opacity: 0;
+            }
+    
+            to {
+                margin-left: 0;
+                opacity: 1;
+            }
         }
     }
 }
@@ -34,17 +48,21 @@
     gap: 16px;
     border-radius: 15px;
     box-shadow: 0 4px 3px 1px #888888;
-}
-.no-item-container{
-    @extend .to-do-holder;
-    padding: 0;
-    box-shadow: 0 0 0 0 ;
-    background-color: #ECECEC;
     .no-item-placeholder{
         font-weight: 300;
-        color: #444444;
+        animation-name: showPlaceholder;
+        animation-duration: 0.4s;
+    
+        @keyframes showPlaceholder {
+            from {
+                margin-top: -20px;
+            }
+    
+            to {
+                margin-top: 0;
+            }
+        }
     }
-
 }
 .to-do-item{
     display: flex;
@@ -52,6 +70,20 @@
     background-color: #ECECEC;
     padding: 15px;
     border-radius: 15px;
+    animation-name: showItem;
+    animation-duration: 1.2s;
+
+    @keyframes showItem {
+        from {
+            margin-top: -50px;
+            opacity: 0;
+        }
+
+        to {
+            margin-top: 0;
+            opacity: 1;
+        }
+    }
     input{
         accent-color: #1E1E1E;
         width: 50px;
