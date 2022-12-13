@@ -1,5 +1,6 @@
 import '../styles/home.scss'
 import { format, parse, parseISO } from 'date-fns'
+import { createObject } from './createObject';
 
 export default function homeModule(parent) {
     let hasPressYes = false;
@@ -141,10 +142,13 @@ export function showForm(){
 
     submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        let category = inputForCategory.value.toLowerCase();
+        let header = inputForTaskHeader.value.trim();
+        let description = inputForTaskDesc.value.trim();
         let date = inputForDueDateTime.value;
         date = format((parseISO(date)), "hh:mm aaaaa'm', yyyy-MM-dd");
 
-        console.log(date);
+        createObject(category, header, description, date);
     });
     return inputContainer;
 }

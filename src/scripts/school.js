@@ -135,6 +135,11 @@ export function schoolItemHolder(){
         dueHolderText.textContent = "Due:"
         dueText.textContent = school[i].dueDate
 
+        //functionalities of each to-do items
+        deleteBtn.addEventListener('click', () => {
+            
+        });
+
     }
     return toDoHolder;
 }

@@ -39,9 +39,3 @@ export function createObject(category, header, description, date){
         return;
     }
 }
-
-function clearOutContainer(element){
-    while(element.firstChild){
-        element.removeChild(element.firstChild);
-    }
-}

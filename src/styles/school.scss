@@ -56,10 +56,12 @@
         @keyframes showPlaceholder {
             from {
                 margin-top: -20px;
+                opacity: 0;
             }
     
             to {
                 margin-top: 0;
+                opacity: 1;
             }
         }
     }
@@ -114,6 +116,11 @@
                     transition: 250ms ease-in;
                     &:hover{
                         transform: translateY(-2px);
+                    }
+                }
+                .fa-trash{
+                    &:hover{
+                        color:rgb(248, 57, 57);
                     }
                 }
             }
