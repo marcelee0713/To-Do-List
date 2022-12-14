@@ -110,6 +110,55 @@ footer{
         width: 500px;
         margin: 1em;
     }
+    .delete-modal-containers{
+        width: 400px;
+        margin: 1em;
+        background-color: #ECECEC;
+        padding: 1em;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .delete-info-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            .delete-info-header{
+                font-weight: bold;
+            }
+        }
+        .delete-button-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            .delete-btn-style{
+                cursor: pointer;
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                width: 120px;
+                height: 40px;
+                font-size: 1rem;
+                font-weight: 300;
+                border: none;
+                outline: none;
+                transition: 250ms ease-in-out;
+                box-shadow: 0 4px 3px 1px #888888;
+                &:hover{
+                    color: #ECECEC;
+                    background-color: #1E1E1E;
+                }
+                &:active{
+                    background-color: #ECECEC;
+                    color: #1E1E1E;
+                    border: 1px solid #1E1E1E;
+                }
+            }
+        }
+    }
 }
 .button-container{
     display: flex;

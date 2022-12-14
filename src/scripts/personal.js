@@ -1,6 +1,7 @@
 import '../styles/personal.scss'
 import { showForm } from './form';
 import { personal } from './arrayofobjects';
+import { showDeleteModal } from './deleteModal';
 
 const modal = document.getElementById('input-modal');
 
@@ -129,8 +130,14 @@ export function personalItemHolder(){
 
         toDoItemHeader.textContent = personal[i].header;
         toDoSubText.textContent = personal[i].description;
-        dueHolderText.textContent = "Due:"
-        dueText.textContent = personal[i].dueDate
+        dueHolderText.textContent = "Due:";
+        dueText.textContent = personal[i].dueDate;
+
+        //functionalities of each to-do items
+        deleteBtn.addEventListener('click', () => {
+            modal.appendChild(showDeleteModal(i, personal[i].category, personal[i].header));
+            modal.style.display = "flex";
+        });
 
     }
     return toDoHolder;

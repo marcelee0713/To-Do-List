@@ -24,6 +24,11 @@ export function createObject(category, header, description, date){
         let workHolder = document.getElementById('work-holder');
         let workContainer = document.getElementById('to-do-work-container');
 
+        if(workHolder === null && workContainer === null){
+            work.push(toDoObject);
+            return
+        }
+
         workHolder.remove();
         work.push(toDoObject);
         workContainer.appendChild(workItemHolder());
@@ -32,6 +37,11 @@ export function createObject(category, header, description, date){
     else if(toDoObject.category === "personal"){
         let personalHolder = document.getElementById('personal-holder');
         let personalContainer = document.getElementById('to-do-personal-container');
+
+        if(personalHolder === null && personalContainer === null){
+            personal.push(toDoObject);
+            return
+        }
 
         personalHolder.remove();
         personal.push(toDoObject);

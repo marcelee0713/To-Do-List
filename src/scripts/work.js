@@ -1,6 +1,7 @@
 import '../styles/work.scss'
 import { showForm } from './form';
 import { work } from './arrayofobjects';
+import { showDeleteModal } from './deleteModal';
 
 const modal = document.getElementById('input-modal');
 
@@ -129,8 +130,14 @@ export function workItemHolder(){
 
         toDoItemHeader.textContent = work[i].header;
         toDoSubText.textContent = work[i].description;
-        dueHolderText.textContent = "Due:"
-        dueText.textContent = work[i].dueDate
+        dueHolderText.textContent = "Due:";
+        dueText.textContent = work[i].dueDate;
+
+        //functionalities of each to-do items
+        deleteBtn.addEventListener('click', () => {
+            modal.appendChild(showDeleteModal(i, work[i].category, work[i].header));
+            modal.style.display = "flex";
+        });
 
     }
     return toDoHolder;

@@ -1,6 +1,7 @@
 import '../styles/school.scss'
 import { showForm } from './form';
 import { school } from './arrayofobjects';
+import { showDeleteModal } from './deleteModal';
 
 const modal = document.getElementById('input-modal');
 
@@ -132,12 +133,13 @@ export function schoolItemHolder(){
 
         toDoItemHeader.textContent = school[i].header;
         toDoSubText.textContent = school[i].description;
-        dueHolderText.textContent = "Due:"
-        dueText.textContent = school[i].dueDate
+        dueHolderText.textContent = "Due:";
+        dueText.textContent = school[i].dueDate;
 
         //functionalities of each to-do items
         deleteBtn.addEventListener('click', () => {
-            
+            modal.appendChild(showDeleteModal(i, school[i].category, school[i].header));
+            modal.style.display = "flex";
         });
 
     }
