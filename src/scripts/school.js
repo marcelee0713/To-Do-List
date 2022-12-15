@@ -140,7 +140,7 @@ export function schoolItemHolder(){
 
         //functionalities of each to-do items
         toDoCheckBox.addEventListener('click', () => {
-            modal.appendChild(showIsDoneModal());
+            modal.appendChild(showIsDoneModal(i, school[i].category, school[i].header, toDoCheckBox));
             modal.style.display = "flex";
         });
         deleteBtn.addEventListener('click', () => {

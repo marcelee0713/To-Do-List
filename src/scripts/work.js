@@ -135,12 +135,16 @@ export function workItemHolder(){
         dueText.textContent = work[i].dueDate;
 
         //functionalities of each to-do items
+        toDoCheckBox.addEventListener('click', () => {
+            modal.appendChild(showIsDoneModal(i, work[i].category, work[i].header, toDoCheckBox));
+            modal.style.display = "flex";
+        });
         deleteBtn.addEventListener('click', () => {
             modal.appendChild(showDeleteModal(i, work[i].category, work[i].header));
             modal.style.display = "flex";
         });
         editBtn.addEventListener('click', () => {
-            modal.appendChild(showEditModal(i, school[i].category, school[i].header, school[i].description));
+            modal.appendChild(showEditModal(i, work[i].category, work[i].header, work[i].description));
             modal.style.display = "flex";
         });
 

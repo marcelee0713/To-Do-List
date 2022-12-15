@@ -229,6 +229,21 @@ footer{
             }
         }
     }
+    .done-modal-containers{
+        @extend .delete-modal-containers;
+        .done-info-container{
+            @extend .delete-info-container;
+            .done-info-header{
+                font-weight: bold;
+            }
+        }
+        .done-button-container{
+            @extend .delete-button-container;
+            .done-btn-style{
+               @extend .delete-btn-style;
+            }
+        }
+    }
 }
 .button-container{
     display: flex;
