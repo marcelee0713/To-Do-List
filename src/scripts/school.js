@@ -2,6 +2,8 @@ import '../styles/school.scss'
 import { showForm } from './form';
 import { school } from './arrayofobjects';
 import { showDeleteModal } from './deleteModal';
+import { showEditModal } from './editModal';
+import { showIsDoneModal } from './isDoneModal';
 
 const modal = document.getElementById('input-modal');
 
@@ -137,8 +139,16 @@ export function schoolItemHolder(){
         dueText.textContent = school[i].dueDate;
 
         //functionalities of each to-do items
+        toDoCheckBox.addEventListener('click', () => {
+            modal.appendChild(showIsDoneModal());
+            modal.style.display = "flex";
+        });
         deleteBtn.addEventListener('click', () => {
             modal.appendChild(showDeleteModal(i, school[i].category, school[i].header));
+            modal.style.display = "flex";
+        });
+        editBtn.addEventListener('click', () => {
+            modal.appendChild(showEditModal(i, school[i].category, school[i].header, school[i].description));
             modal.style.display = "flex";
         });
 

@@ -2,6 +2,7 @@ import '../styles/work.scss'
 import { showForm } from './form';
 import { work } from './arrayofobjects';
 import { showDeleteModal } from './deleteModal';
+import { showEditModal } from './editModal';
 
 const modal = document.getElementById('input-modal');
 
@@ -136,6 +137,10 @@ export function workItemHolder(){
         //functionalities of each to-do items
         deleteBtn.addEventListener('click', () => {
             modal.appendChild(showDeleteModal(i, work[i].category, work[i].header));
+            modal.style.display = "flex";
+        });
+        editBtn.addEventListener('click', () => {
+            modal.appendChild(showEditModal(i, school[i].category, school[i].header, school[i].description));
             modal.style.display = "flex";
         });
 
