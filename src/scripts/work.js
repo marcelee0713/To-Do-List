@@ -3,6 +3,7 @@ import { showForm } from './form';
 import { work } from './arrayofobjects';
 import { showDeleteModal } from './deleteModal';
 import { showEditModal } from './editModal';
+import { showIsDoneModal } from './isDoneModal';
 
 const modal = document.getElementById('input-modal');
 

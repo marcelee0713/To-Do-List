@@ -1,4 +1,7 @@
+import { putToArchive } from "./archiveObject";
+
 const modal = document.getElementById('input-modal');
+
 export function showIsDoneModal(index, category, header, checkbox) {
     const doneContainer = document.createElement('div');
     const infoContainer = document.createElement('div');
@@ -30,6 +33,7 @@ export function showIsDoneModal(index, category, header, checkbox) {
 
     yesBtn.addEventListener('click', () => {
         clearOutContainer(modal);
+        putToArchive(index, category)
         modal.style.display = "none";
     });
 

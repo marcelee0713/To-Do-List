@@ -1,69 +1,53 @@
-import '../styles/personal.scss'
-import { showForm } from './form';
-import { personal } from './arrayofobjects';
-import { showDeleteModal } from './deleteModal';
-import { showEditModal } from './editModal';
-import { showIsDoneModal } from './isDoneModal';
+import { archive } from './arrayofobjects';
 
-const modal = document.getElementById('input-modal');
-
-export default function personalModule(parent){
+export default function archiveModule(parent){
     const introContainer = document.createElement('div');
     const introHeader = document.createElement('h1');
     const introSubtextContainer = document.createElement('div');
     const introSubText1 = document.createElement('p');
-    const showInputBtn = document.createElement('button');
 
     introContainer.classList.add('intro-container');
     introHeader.classList.add('intro-header');
     introSubtextContainer.classList.add('intro-subtext-container');
-    showInputBtn.classList.add('show-input-btn')
 
-    introHeader.textContent = "Personal";
-    introSubText1.textContent = "Doing something really productive for yourself?! Cap.";
-    showInputBtn.textContent = "CREATE"
+    introHeader.textContent = "Archive";
+    introSubText1.textContent = "Is where all of your task are surely done here.";
 
     introContainer.appendChild(introHeader);
     introContainer.appendChild(introSubtextContainer);
     introSubtextContainer.appendChild(introSubText1);
-    introContainer.appendChild(showInputBtn);
-
-    showInputBtn.addEventListener('click', () => {
-        modal.appendChild(showForm("personal"));
-        modal.style.display = "flex";
-    });
 
     return introContainer;
 }
 
-export function createPersonalToDo(){
+export function createDone() {
     const toDoContainer = document.createElement('div');
     const toDoHeader = document.createElement('h2');
     const line = document.createElement('hr');
 
     toDoContainer.appendChild(toDoHeader);
-    toDoContainer.setAttribute('id', 'to-do-personal-container');
     toDoContainer.appendChild(line);
 
     toDoContainer.classList.add('to-do-container');
+    toDoContainer.setAttribute('id', 'to-do-done-container');
     line.classList.add('line');
 
-    toDoHeader.textContent = "Personal"
+    toDoHeader.textContent = "Done"
 
     return toDoContainer;
 }
 
-export function personalItemHolder(){
+export function createHolder() {
     const toDoHolder = document.createElement('div');
-    if (personal.length === 0) {
+    if (archive.length === 0) {
         const noItem = document.createElement('div');
         toDoHolder.appendChild(noItem);
 
         toDoHolder.classList.add('to-do-holder');
-        toDoHolder.setAttribute('id', 'personal-holder');
+        toDoHolder.setAttribute('id', 'done-holder');
         noItem.classList.add('no-item-placeholder');
     
-        noItem.textContent = "Don't you have to do something?";
+        noItem.textContent = "Are you actually this lazy? Just kidding.";
 
         noItem.style.color = "#ECECEC"
         noItem.style.textAlign = "center"
@@ -71,9 +55,8 @@ export function personalItemHolder(){
         return toDoHolder;
     }
 
-    for (let i = 0; i < personal.length; i++) {
+    for (let i = 0; i < archive.length; i++) {
         const toDoItem = document.createElement('div');
-        const toDoCheckBox = document.createElement('input');
         const toDoDetailsContainer = document.createElement('div');
 
         const toDoHeaderAndDueOptionsContainer = document.createElement('div');
@@ -85,12 +68,9 @@ export function personalItemHolder(){
         const dueContainer = document.createElement('div');
         const dueHolderText = document.createElement('div');
         const dueText = document.createElement('div');
-        const deleteBtn = document.createElement('i');
-        const editBtn = document.createElement('i');
 
         //inside todoholder
         toDoHolder.appendChild(toDoItem)
-        toDoItem.appendChild(toDoCheckBox);
         toDoItem.appendChild(toDoDetailsContainer);
 
         toDoDetailsContainer.appendChild(toDoHeaderAndDueOptionsContainer);
@@ -103,14 +83,10 @@ export function personalItemHolder(){
         dueContainer.appendChild(dueHolderText);
         dueContainer.appendChild(dueText);
 
-        dueOptionsContainer.appendChild(deleteBtn);
-        dueOptionsContainer.appendChild(editBtn);
-
         toDoHolder.classList.add('to-do-holder');
-        toDoHolder.setAttribute('id', 'personal-holder');
+        toDoHolder.setAttribute('id', 'school-holder');
 
         toDoItem.classList.add('to-do-item');
-        toDoCheckBox.classList.add('to-do-check-box');
         toDoDetailsContainer.classList.add('to-do-details-container');
 
         toDoHeaderAndDueOptionsContainer.classList.add('header-and-due-options-container');
@@ -123,32 +99,11 @@ export function personalItemHolder(){
         dueHolderText.classList.add('due-holder-text');
         dueText.classList.add('due-text');
 
-        deleteBtn.classList.add('fa-solid');
-        deleteBtn.classList.add('fa-trash');
-        editBtn.classList.add('fa-solid');
-        editBtn.classList.add('fa-pen');
-
-        toDoCheckBox.setAttribute('type', 'checkbox');
-
-        toDoItemHeader.textContent = personal[i].header;
-        toDoSubText.textContent = personal[i].description;
-        dueHolderText.textContent = "Due:";
-        dueText.textContent = personal[i].dueDate;
-
-        //functionalities of each to-do items
-        toDoCheckBox.addEventListener('click', () => {
-            modal.appendChild(showIsDoneModal(i, personal[i].category, personal[i].header, toDoCheckBox));
-            modal.style.display = "flex";
-        });
-        deleteBtn.addEventListener('click', () => {
-            modal.appendChild(showDeleteModal(i, personal[i].category, personal[i].header));
-            modal.style.display = "flex";
-        });
-        editBtn.addEventListener('click', () => {
-            modal.appendChild(showEditModal(i, personal[i].category, personal[i].header, personal[i].description));
-            modal.style.display = "flex";
-        });
-
+        toDoItemHeader.textContent = archive[i].header;
+        toDoSubText.textContent = archive[i].description;
+        dueHolderText.textContent = "Task Done:";
+        dueText.textContent = archive[i].dueDate;
     }
     return toDoHolder;
 }
+
