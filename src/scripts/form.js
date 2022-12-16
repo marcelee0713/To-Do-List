@@ -1,5 +1,7 @@
 import { format, parse, parseISO, sub } from 'date-fns'
 import { createObject } from './createObject';
+import inputValidation from './inputValidation';
+import showSuccessModal from './successModal';
 
 const modal = document.getElementById('input-modal');
 
@@ -115,11 +117,24 @@ export function showForm(category){
         let header = inputForTaskHeader.value.trim();
         let description = inputForTaskDesc.value.trim();
         let date = inputForDueDateTime.value;
-        date = format((parseISO(date)), "hh:mm aaaaa'm', yyyy-MM-dd");
+        
+        inputValidation
+        (
+            false, header, description, date, 
+            labelForTaskHeader, labelForTaskDesc, labelForDueDateTime,
+            inputForTaskHeader, inputForTaskDesc, inputForDueDateTime
+        );
+
+        if(date === ""){
+            return;
+        }
+        else{
+            date = format((parseISO(date)), "hh:mm aaaaa'm', yyyy-MM-dd");
+        }
 
         createObject(category, header, description, date);
         clearOutContainer(modal);
-        modal.style.display = "none";
+        modal.appendChild(showSuccessModal(category));
     });
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();

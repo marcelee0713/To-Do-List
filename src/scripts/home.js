@@ -1,6 +1,10 @@
 import '../styles/home.scss'
 import { format, parse, parseISO } from 'date-fns'
 import { createObject } from './createObject';
+import inputValidation from './inputValidation';
+import showSuccessModal from './successModal';
+
+const modal = document.getElementById('input-modal');
 
 export default function homeModule(parent) {
     let hasPressYes = false;
@@ -146,9 +150,33 @@ export function showForm(){
         let header = inputForTaskHeader.value.trim();
         let description = inputForTaskDesc.value.trim();
         let date = inputForDueDateTime.value;
-        date = format((parseISO(date)), "hh:mm aaaaa'm', yyyy-MM-dd");
+
+        inputValidation
+        (
+            false, header, description, date, 
+            labelForTaskHeader, labelForTaskDesc, labelForDueDateTime,
+            inputForTaskHeader, inputForTaskDesc, inputForDueDateTime
+        );
+
+        if(date === ""){
+            return;
+        }
+        else{
+            date = format((parseISO(date)), "hh:mm aaaaa'm', yyyy-MM-dd");
+        }
 
         createObject(category, header, description, date);
+        clearOutContainer(modal);
+        modal.style.display = "flex";
+        modal.appendChild(showSuccessModal(category));
+        inputForTaskHeader.value = "";
+        inputForTaskDesc.value = "";
+        inputForDueDateTime.value = "";
     });
     return inputContainer;
+}
+function clearOutContainer(element){
+    while(element.firstChild){
+        element.removeChild(element.firstChild);
+    }
 }

@@ -1,5 +1,7 @@
 import { editObject } from "./editObject";
 import { format, parse, parseISO, sub } from 'date-fns'
+import inputValidation from "./inputValidation";
+
 const modal = document.getElementById('input-modal');
 
 export function showEditModal(index, category, header, desc) {
@@ -93,9 +95,9 @@ export function showEditModal(index, category, header, desc) {
     editInfoSubText.textContent = "You are now currently editing:"
     editInfo.textContent = header;
     
-    editHeaderLabel.textContent = "Change the header";
-    editDescLabel.textContent = "Change the description";
-    editDueDateLabel.textContent = "Change the due-date";
+    editHeaderLabel.textContent = "Change the header.";
+    editDescLabel.textContent = "Change the description.";
+    editDueDateLabel.textContent = "Change the due-date.";
 
     editHeaderInput.value = header
     editDescInput.value = desc;
@@ -108,7 +110,20 @@ export function showEditModal(index, category, header, desc) {
         let thisHeader = editHeaderInput.value.trim();
         let thisDesc = editDescInput.value.trim();
         let thisDate = editDueDateInput.value;
-        thisDate = format((parseISO(thisDate)), "hh:mm aaaaa'm', yyyy-MM-dd");
+               
+        inputValidation
+        (
+            true, thisHeader, thisDesc, thisDate, 
+            editHeaderLabel, editDescLabel, editDueDateLabel,
+            editHeaderInput, editDescInput, editDueDateInput
+        );
+
+        if(thisDate === ""){
+            return;
+        }
+        else{
+            thisDate = format((parseISO(thisDate)), "hh:mm aaaaa'm', yyyy-MM-dd");
+        }
         editObject(index, category, thisHeader, thisDesc, thisDate);
         modal.style.display = "none";
         clearOutContainer(modal);

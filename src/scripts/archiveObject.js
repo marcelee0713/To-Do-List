@@ -1,19 +1,21 @@
 import ToDo from './ToDoClass';
+import { format } from 'date-fns'
 import { school, work, personal, archive } from './arrayofobjects';
 import { schoolItemHolder } from './school';
 import { workItemHolder } from './work';
 import { personalItemHolder } from './personal';
 
 export function putToArchive(index, category){
+    let dateToday = format(new Date(), "hh:mm aaaaa'm', yyyy-MM-dd");
+
     if(category === "school"){
         let schoolHolder = document.getElementById('school-holder');
         let schoolContainer = document.getElementById('to-do-school-container');
         let category = school[index].category;
         let header = school[index].header;
         let description = school[index].description;
-        let dueDate = school[index].dueDate;
 
-        const objectArchive = new ToDo(category, header, description, dueDate);
+        const objectArchive = new ToDo(category, header, description, dateToday);
         archive.push(objectArchive);
         schoolHolder.remove();
         school.splice(index, 1);
@@ -26,9 +28,8 @@ export function putToArchive(index, category){
         let category = work[index].category;
         let header = work[index].header;
         let description = work[index].description;
-        let dueDate = work[index].dueDate;
 
-        const objectArchive = new ToDo(category, header, description, dueDate);
+        const objectArchive = new ToDo(category, header, description, dateToday);
         archive.push(objectArchive);
         workHolder.remove();
         work.splice(index, 1);
@@ -41,9 +42,8 @@ export function putToArchive(index, category){
         let category = personal[index].category;
         let header = personal[index].header;
         let description = personal[index].description;
-        let dueDate = personal[index].dueDate;
 
-        const objectArchive = new ToDo(category, header, description, dueDate);
+        const objectArchive = new ToDo(category, header, description, dateToday);
         archive.push(objectArchive);
         personalHolder.remove();
         personal.splice(index, 1);

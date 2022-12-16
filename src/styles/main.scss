@@ -244,6 +244,35 @@ footer{
             }
         }
     }
+    .success-modal-containers{
+        -webkit-animation-name: openSuccess;
+        animation-name: openSuccess;
+        -webkit-animation-duration: 0.4s;
+        animation-duration: 0.4s;
+    
+        @keyframes openSuccess {
+            from {
+                transform: scale(0.5);
+            }
+    
+            to {
+                transform: scale(1);
+            }
+        }
+        @extend .delete-modal-containers;
+        .success-info-container{
+            @extend .delete-info-container;
+            .success-info-header{
+                font-weight: bold;
+            }
+        }
+        .success-button-container{
+            @extend .delete-button-container;
+            .success-btn-style{
+               @extend .delete-btn-style;
+            }
+        }
+    }
 }
 .button-container{
     display: flex;
