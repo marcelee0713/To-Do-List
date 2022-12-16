@@ -1,10 +1,14 @@
 import './styles/main.scss'
 import homeModule from './scripts/home'
 import allModule from './scripts/all';
+import { school, work, personal, archive } from './scripts/arrayofobjects';
+import { retrieveAll, retrieveSchool, retrieveWork, retrievePersonal, retrieveArchive } from './scripts/retrieveObjects';
 import schoolModule, { createSchoolToDo, schoolItemHolder } from './scripts/school';
 import workModule, {createWorkToDo, workItemHolder} from './scripts/work';
 import personalModule, { createPersonalToDo, personalItemHolder } from './scripts/personal';
 import archiveModule, { createDone, createHolder } from './scripts/archive';
+import ToDo from './scripts/ToDoClass';
+
 
 const homeNav = document.getElementById('home');
 const allNav = document.getElementById('all');
@@ -28,7 +32,9 @@ homeNav.addEventListener('click', () => {
     workNav.style.backgroundColor = "#1F1F1F"
     personalNav.style.backgroundColor = "#1F1F1F"
 });
+
 allNav.addEventListener('click', () => {
+    retrieveAll();
     clearOutContainer(content);
     content.appendChild(allModule());
     content.appendChild(createSchoolToDo());
@@ -54,6 +60,7 @@ allNav.addEventListener('click', () => {
     archiveNav.style.backgroundColor = "#1F1F1F"
 });
 schoolNav.addEventListener('click', () => {
+    retrieveSchool();
     clearOutContainer(content);
     content.appendChild(schoolModule(content));
     content.appendChild(createSchoolToDo());
@@ -66,6 +73,7 @@ schoolNav.addEventListener('click', () => {
     archiveNav.style.backgroundColor = "#1F1F1F"
 });
 workNav.addEventListener('click', () => {
+    retrieveWork();
     clearOutContainer(content);
     content.appendChild(workModule(content));
     content.appendChild(createWorkToDo());
@@ -78,6 +86,7 @@ workNav.addEventListener('click', () => {
     archiveNav.style.backgroundColor = "#1F1F1F"
 });
 personalNav.addEventListener('click', () => {
+    retrievePersonal();
     clearOutContainer(content);
     content.appendChild(personalModule(content));
     content.appendChild(createPersonalToDo());
@@ -90,6 +99,7 @@ personalNav.addEventListener('click', () => {
     archiveNav.style.backgroundColor = "#1F1F1F"
 });
 archiveNav.addEventListener('click', () => {
+    retrieveArchive();
     clearOutContainer(content);
     content.appendChild(archiveModule(content));
     content.appendChild(createDone());

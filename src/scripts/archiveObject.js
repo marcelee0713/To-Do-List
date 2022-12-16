@@ -14,13 +14,15 @@ export function putToArchive(index, category){
         let category = school[index].category;
         let header = school[index].header;
         let description = school[index].description;
+        localStorage.removeItem("school");
 
         const objectArchive = new ToDo(category, header, description, dateToday);
         archive.push(objectArchive);
         schoolHolder.remove();
         school.splice(index, 1);
         schoolContainer.appendChild(schoolItemHolder());
-        console.log(archive);
+        localStorage.setItem("school", JSON.stringify(school));
+        localStorage.setItem("archive", JSON.stringify(archive));
     }
     else if(category === "work"){
         let workHolder = document.getElementById('work-holder');
@@ -28,13 +30,15 @@ export function putToArchive(index, category){
         let category = work[index].category;
         let header = work[index].header;
         let description = work[index].description;
+        localStorage.removeItem("work");
 
         const objectArchive = new ToDo(category, header, description, dateToday);
         archive.push(objectArchive);
         workHolder.remove();
         work.splice(index, 1);
         workContainer.appendChild(workItemHolder());
-        console.log(archive);
+        localStorage.setItem("work", JSON.stringify(work));
+        localStorage.setItem("archive", JSON.stringify(archive));
     }
     else if(category === "personal"){
         let personalHolder = document.getElementById('personal-holder');
@@ -42,12 +46,14 @@ export function putToArchive(index, category){
         let category = personal[index].category;
         let header = personal[index].header;
         let description = personal[index].description;
+        localStorage.removeItem("personal");
 
         const objectArchive = new ToDo(category, header, description, dateToday);
         archive.push(objectArchive);
         personalHolder.remove();
         personal.splice(index, 1);
         personalContainer.appendChild(personalItemHolder());
-        console.log(archive);
+        localStorage.setItem("personal", JSON.stringify(personal));
+        localStorage.setItem("archive", JSON.stringify(archive));
     }
 }

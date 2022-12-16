@@ -12,11 +12,13 @@ export function createObject(category, header, description, date){
 
         if(schoolHolder === null && schoolContainer === null){
             school.push(toDoObject);
+            localStorage.setItem("school", JSON.stringify(school));
             return
         }
 
         schoolHolder.remove();
         school.push(toDoObject);
+        localStorage.setItem("school", JSON.stringify(school));
         schoolContainer.appendChild(schoolItemHolder());
         return;
     }
@@ -26,11 +28,13 @@ export function createObject(category, header, description, date){
 
         if(workHolder === null && workContainer === null){
             work.push(toDoObject);
+            localStorage.setItem("work", JSON.stringify(work));
             return
         }
 
         workHolder.remove();
         work.push(toDoObject);
+        localStorage.setItem("work", JSON.stringify(work));
         workContainer.appendChild(workItemHolder());
         return;
     }
@@ -40,11 +44,13 @@ export function createObject(category, header, description, date){
 
         if(personalHolder === null && personalContainer === null){
             personal.push(toDoObject);
+            localStorage.setItem("personal", JSON.stringify(personal));
             return
         }
 
         personalHolder.remove();
         personal.push(toDoObject);
+        localStorage.setItem("personal", JSON.stringify(personal));
         personalContainer.appendChild(personalItemHolder());
         return;
     }

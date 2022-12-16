@@ -1,11 +1,7 @@
-export let school = [
-];
+export let school = [];
 
-export let work = [
-];
+export let work = [];
 
-export let personal = [
-];
+export let personal = [];
 
-export let archive = [
-];
+export let archive = [];

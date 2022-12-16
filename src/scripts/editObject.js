@@ -11,6 +11,7 @@ export function editObject(index, category, header, desc, date){
         school[index].header = header;
         school[index].description = desc;
         school[index].dueDate = date;
+        localStorage.setItem("school", JSON.stringify(school));
         schoolContainer.appendChild(schoolItemHolder());
         return;
     }
@@ -21,6 +22,7 @@ export function editObject(index, category, header, desc, date){
         work[index].header = header;
         work[index].description = desc;
         work[index].dueDate = date;
+        localStorage.setItem("work", JSON.stringify(work));
         workContainer.appendChild(workItemHolder());
         return;
     }
@@ -31,6 +33,7 @@ export function editObject(index, category, header, desc, date){
         personal[index].header = header;
         personal[index].description = desc;
         personal[index].dueDate = date;
+        localStorage.setItem("personal", JSON.stringify(personal));
         personalContainer.appendChild(personalItemHolder());
         return;
     }
