@@ -88,8 +88,10 @@ export function schoolItemHolder(){
         const dueContainer = document.createElement('div');
         const dueHolderText = document.createElement('div');
         const dueText = document.createElement('div');
+        const optionsContainer = document.createElement('div');
         const deleteBtn = document.createElement('i');
         const editBtn = document.createElement('i');
+        const checkBtn = document.createElement('i');
 
         //inside todoholder
         toDoHolder.appendChild(toDoItem)
@@ -106,8 +108,10 @@ export function schoolItemHolder(){
         dueContainer.appendChild(dueHolderText);
         dueContainer.appendChild(dueText);
 
-        dueOptionsContainer.appendChild(deleteBtn);
-        dueOptionsContainer.appendChild(editBtn);
+        dueOptionsContainer.appendChild(optionsContainer);
+        optionsContainer.appendChild(deleteBtn);
+        optionsContainer.appendChild(editBtn);
+        optionsContainer.appendChild(checkBtn);
 
         toDoHolder.classList.add('to-do-holder');
         toDoHolder.setAttribute('id', 'school-holder');
@@ -126,10 +130,13 @@ export function schoolItemHolder(){
         dueHolderText.classList.add('due-holder-text');
         dueText.classList.add('due-text');
 
+        optionsContainer.classList.add('options-container');
         deleteBtn.classList.add('fa-solid');
         deleteBtn.classList.add('fa-trash');
         editBtn.classList.add('fa-solid');
         editBtn.classList.add('fa-pen');
+        checkBtn.classList.add('fa-solid');
+        checkBtn.classList.add('fa-check');
 
         toDoCheckBox.setAttribute('type', 'checkbox');
 
@@ -149,6 +156,10 @@ export function schoolItemHolder(){
         });
         editBtn.addEventListener('click', () => {
             modal.appendChild(showEditModal(i, school[i].category, school[i].header, school[i].description));
+            modal.style.display = "flex";
+        });
+        checkBtn.addEventListener('click', () => {
+            modal.appendChild(showIsDoneModal(i, school[i].category, school[i].header, toDoCheckBox));
             modal.style.display = "flex";
         });
 

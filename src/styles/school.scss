@@ -105,24 +105,121 @@
             }
             .due-options-container{
                 display: flex;
+                align-items: center;
                 gap: 8px;
                 .due-container{
                     display: flex;
                     gap: 2px;
                     font-weight: 300;
                 }
-                i{
-                    cursor: pointer;
-                    transition: 250ms ease-in;
-                    &:hover{
-                        transform: translateY(-2px);
+                .options-container{
+                    display: flex;
+                    gap: 10px;
+                    i{
+                        cursor: pointer;
+                        transition: 250ms ease-in;
+                        &:hover{
+                            transform: translateY(-2px);
+                        }
+                    }
+                    .fa-trash{
+                        &:hover{
+                            color:rgb(248, 57, 57);
+                        }
+                    }
+                    .fa-check{
+                        display: none;
                     }
                 }
-                .fa-trash{
-                    &:hover{
-                        color:rgb(248, 57, 57);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 55em){
+    .to-do-container{
+        h2{
+            font-size: 1.5rem;
+        }
+        .to-do-holder{
+            .header-and-due-options-container{
+                .to-do-item-header{
+                    font-size: 1rem;
+                }
+                .due-options-container{
+                    font-size: 0.9rem;
+                }
+            }
+            .to-do-sub-text{
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 45.375em){
+    .to-do-container{
+        h2{
+            font-size: 1.5rem;
+        }
+        .to-do-holder{
+            .to-do-item{
+                .to-do-check-box{
+                    width: 30px;
+                }
+            }
+            .header-and-due-options-container{
+                flex-direction: column;
+                .to-do-item-header{
+                    font-size: 1rem;
+                }
+                .due-options-container{
+                    font-size: 0.9rem;
+                }
+            }
+            .to-do-sub-text{
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 31.25em){
+    .style-modal{
+        .input-modal-container{
+            margin: 0.5em;
+        }
+    }
+    .to-do-container{
+        h2{
+            font-size: 1.2rem;
+        }
+        .to-do-holder{
+            padding: 10px;
+            .to-do-item{
+                padding: 10px;
+                .to-do-check-box{
+                    display: none;
+                }
+            }
+            .header-and-due-options-container{
+                flex-direction: column;
+                .to-do-item-header{
+                    font-size: 0.9rem;
+                }
+                .due-options-container{
+                    font-size: 0.8rem;
+                    justify-content: space-between;
+                    .options-container{
+                        gap: 7px;
+                        .fa-check{
+                            display: block;
+                        }
                     }
                 }
+            }
+            .to-do-sub-text{
+                font-size: 0.8rem;
             }
         }
     }
