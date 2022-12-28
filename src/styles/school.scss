@@ -1,38 +1,38 @@
-.to-do-container{
+.to-do-container {
     display: flex;
     flex-direction: column;
-    color:#1E1E1E;
+    color: #1e1e1e;
     margin-bottom: 40px;
-    h2{
+    h2 {
         font-size: 2rem;
-        color: #1E1E1E;
+        color: #1e1e1e;
         animation-name: showHeader;
         animation-duration: 1.2s;
-    
+
         @keyframes showHeader {
             from {
                 margin-left: -50px;
                 opacity: 0;
             }
-    
+
             to {
                 margin-left: 0;
                 opacity: 1;
             }
         }
     }
-    .line{
-        border: 1px solid #1E1E1E;
+    .line {
+        border: 1px solid #1e1e1e;
         margin-bottom: 8px;
         animation-name: showHR;
         animation-duration: 1.2s;
-    
+
         @keyframes showHR {
             from {
                 margin-left: -50px;
                 opacity: 0;
             }
-    
+
             to {
                 margin-left: 0;
                 opacity: 1;
@@ -40,25 +40,25 @@
         }
     }
 }
-.to-do-holder{
-    background-color: #1E1E1E;
+.to-do-holder {
+    background-color: #1e1e1e;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 16px;
     border-radius: 15px;
     box-shadow: 0 4px 3px 1px #888888;
-    .no-item-placeholder{
+    .no-item-placeholder {
         font-weight: 300;
         animation-name: showPlaceholder;
         animation-duration: 0.4s;
-    
+
         @keyframes showPlaceholder {
             from {
                 margin-top: -20px;
                 opacity: 0;
             }
-    
+
             to {
                 margin-top: 0;
                 opacity: 1;
@@ -66,10 +66,10 @@
         }
     }
 }
-.to-do-item{
+.to-do-item {
     display: flex;
     gap: 12px;
-    background-color: #ECECEC;
+    background-color: #ececec;
     padding: 15px;
     border-radius: 15px;
     animation-name: showItem;
@@ -86,48 +86,48 @@
             opacity: 1;
         }
     }
-    input{
-        accent-color: #1E1E1E;
+    input {
+        accent-color: #1e1e1e;
         width: 50px;
         min-width: 25px;
         cursor: pointer;
     }
-    .to-do-details-container{
+    .to-do-details-container {
         display: flex;
         flex-direction: column;
         width: 100%;
-        .header-and-due-options-container{
+        .header-and-due-options-container {
             display: flex;
             justify-content: space-between;
-            .to-do-item-header{
+            .to-do-item-header {
                 font-weight: bold;
                 font-size: 1.2rem;
             }
-            .due-options-container{
+            .due-options-container {
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                .due-container{
+                .due-container {
                     display: flex;
                     gap: 2px;
                     font-weight: 300;
                 }
-                .options-container{
+                .options-container {
                     display: flex;
                     gap: 10px;
-                    i{
+                    i {
                         cursor: pointer;
                         transition: 250ms ease-in;
-                        &:hover{
+                        &:hover {
                             transform: translateY(-2px);
                         }
                     }
-                    .fa-trash{
-                        &:hover{
-                            color:rgb(248, 57, 57);
+                    .fa-trash {
+                        &:hover {
+                            color: rgb(248, 57, 57);
                         }
                     }
-                    .fa-check{
+                    .fa-check {
                         display: none;
                     }
                 }
@@ -136,95 +136,95 @@
     }
 }
 
-@media only screen and (max-width: 55em){
-    .to-do-container{
-        h2{
+@media only screen and (max-width: 55em) {
+    .to-do-container {
+        h2 {
             font-size: 1.5rem;
         }
-        .to-do-holder{
-            .header-and-due-options-container{
-                .to-do-item-header{
+        .to-do-holder {
+            .header-and-due-options-container {
+                .to-do-item-header {
                     font-size: 1rem;
                 }
-                .due-options-container{
+                .due-options-container {
                     font-size: 0.9rem;
                 }
             }
-            .to-do-sub-text{
+            .to-do-sub-text {
                 font-size: 0.9rem;
             }
-            .no-item-placeholder{
+            .no-item-placeholder {
                 font-size: 0.9rem;
             }
         }
     }
 }
 
-@media only screen and (max-width: 45.375em){
-    .to-do-container{
-        h2{
+@media only screen and (max-width: 45.375em) {
+    .to-do-container {
+        h2 {
             font-size: 1.5rem;
         }
-        .to-do-holder{
-            .to-do-item{
-                .to-do-check-box{
+        .to-do-holder {
+            .to-do-item {
+                .to-do-check-box {
                     width: 30px;
                 }
             }
-            .header-and-due-options-container{
+            .header-and-due-options-container {
                 flex-direction: column;
-                .to-do-item-header{
+                .to-do-item-header {
                     font-size: 1rem;
                 }
-                .due-options-container{
+                .due-options-container {
                     font-size: 0.9rem;
                 }
             }
-            .to-do-sub-text{
+            .to-do-sub-text {
                 font-size: 0.9rem;
             }
-            .no-item-placeholder{
+            .no-item-placeholder {
                 font-size: 0.8rem;
             }
         }
     }
 }
 
-@media only screen and (max-width: 31.25em){
-    .style-modal{
-        .input-modal-container{
+@media only screen and (max-width: 31.25em) {
+    .style-modal {
+        .input-modal-container {
             margin: 0.5em;
         }
     }
-    .to-do-container{
-        h2{
+    .to-do-container {
+        h2 {
             font-size: 1.2rem;
         }
-        .to-do-holder{
+        .to-do-holder {
             padding: 10px;
-            .to-do-item{
+            .to-do-item {
                 padding: 10px;
-                .to-do-check-box{
+                .to-do-check-box {
                     display: none;
                 }
             }
-            .header-and-due-options-container{
+            .header-and-due-options-container {
                 flex-direction: column;
-                .to-do-item-header{
+                .to-do-item-header {
                     font-size: 0.9rem;
                 }
-                .due-options-container{
+                .due-options-container {
                     font-size: 0.8rem;
                     justify-content: space-between;
-                    .options-container{
+                    .options-container {
                         gap: 7px;
-                        .fa-check{
+                        .fa-check {
                             display: block;
                         }
                     }
                 }
             }
-            .to-do-sub-text{
+            .to-do-sub-text {
                 font-size: 0.8rem;
             }
         }

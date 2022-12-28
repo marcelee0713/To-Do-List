@@ -1,19 +1,19 @@
-import ToDo from './ToDoClass';
-import { school, work, personal } from './arrayofobjects';
-import { schoolItemHolder } from './school';
-import { workItemHolder } from './work';
-import { personalItemHolder } from './personal';
+import ToDo from "./ToDoClass";
+import { school, work, personal } from "./arrayofobjects";
+import { schoolItemHolder } from "./school";
+import { workItemHolder } from "./work";
+import { personalItemHolder } from "./personal";
 
-export function createObject(category, header, description, date){
+export function createObject(category, header, description, date) {
     const toDoObject = new ToDo(category, header, description, date);
-    if(toDoObject.category === "school"){
-        let schoolHolder = document.getElementById('school-holder');
-        let schoolContainer = document.getElementById('to-do-school-container');
+    if (toDoObject.category === "school") {
+        let schoolHolder = document.getElementById("school-holder");
+        let schoolContainer = document.getElementById("to-do-school-container");
 
-        if(schoolHolder === null && schoolContainer === null){
+        if (schoolHolder === null && schoolContainer === null) {
             school.push(toDoObject);
             localStorage.setItem("school", JSON.stringify(school));
-            return
+            return;
         }
 
         schoolHolder.remove();
@@ -21,15 +21,14 @@ export function createObject(category, header, description, date){
         localStorage.setItem("school", JSON.stringify(school));
         schoolContainer.appendChild(schoolItemHolder());
         return;
-    }
-    else if(toDoObject.category === "work"){
-        let workHolder = document.getElementById('work-holder');
-        let workContainer = document.getElementById('to-do-work-container');
+    } else if (toDoObject.category === "work") {
+        let workHolder = document.getElementById("work-holder");
+        let workContainer = document.getElementById("to-do-work-container");
 
-        if(workHolder === null && workContainer === null){
+        if (workHolder === null && workContainer === null) {
             work.push(toDoObject);
             localStorage.setItem("work", JSON.stringify(work));
-            return
+            return;
         }
 
         workHolder.remove();
@@ -37,15 +36,16 @@ export function createObject(category, header, description, date){
         localStorage.setItem("work", JSON.stringify(work));
         workContainer.appendChild(workItemHolder());
         return;
-    }
-    else if(toDoObject.category === "personal"){
-        let personalHolder = document.getElementById('personal-holder');
-        let personalContainer = document.getElementById('to-do-personal-container');
+    } else if (toDoObject.category === "personal") {
+        let personalHolder = document.getElementById("personal-holder");
+        let personalContainer = document.getElementById(
+            "to-do-personal-container"
+        );
 
-        if(personalHolder === null && personalContainer === null){
+        if (personalHolder === null && personalContainer === null) {
             personal.push(toDoObject);
             localStorage.setItem("personal", JSON.stringify(personal));
-            return
+            return;
         }
 
         personalHolder.remove();
